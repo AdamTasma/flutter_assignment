@@ -2,3 +2,53 @@
 // below it
 // 2) Add a button which changes the text (to any other text of your choice)
 // 3) Split the app into three widgets: App, TextControl & Text
+
+import 'package:flutter/material.dart';
+
+void main() => runApp(MyApp());
+
+class MyApp extends StatefulWidget {
+  @override
+  State<StatefulWidget> createState() {
+    return _MyAppState();
+  }
+}
+
+class _MyAppState extends State<MyApp> {
+  var _isOn = false;
+
+  void _myButtonPress() {
+    setState(() {
+      if (_isOn) {
+        _isOn = false;
+      } else {
+        _isOn = true;
+      }
+    });
+
+    print(_isOn);
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(title: Text('My Second App')),
+        body: Center(
+          child: Column(
+            children: <Widget>[
+              RaisedButton(
+                  child: Text("flip the switch"),
+                  onPressed: _myButtonPress,
+                  textColor: Colors.blue),
+              _isOn
+                  ? Text('ON', style: TextStyle(color: Colors.green))
+                  : Text('OFF', style: TextStyle(color: Colors.red)),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
