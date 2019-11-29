@@ -19,11 +19,7 @@ class _MyAppState extends State<MyApp> {
 
   void _myButtonPress() {
     setState(() {
-      if (_isOn) {
-        _isOn = false;
-      } else {
-        _isOn = true;
-      }
+      _isOn = !_isOn;
     });
 
     print(_isOn);
@@ -31,7 +27,6 @@ class _MyAppState extends State<MyApp> {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: Text('My Second App')),
